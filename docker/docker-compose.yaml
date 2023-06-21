@@ -6,14 +6,14 @@ services:
     container_name: postgres_post_container
     build: postgres
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-123456}
-      POSTGRES_DB: ${POSTGRES_DB:-postgres_db}
-      PGDATA: ${PGDATA:-/data/postgres}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: ${PGDATA}
     volumes:
-      - postgres_post:${PGDATA:-/data/postgres}
+      - postgres_post:${PGDATA}
     ports:
-      - "${DB_PORT:-5432}:5432"
+      - "${DB_PORT}:5432"
     networks:
       - postgres_post
     restart: unless-stopped
